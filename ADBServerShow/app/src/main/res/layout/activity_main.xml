@@ -10,11 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ntu.zc.adbservershow.MainActivity">
 
-    <TextView
-        android:id="@+id/tv"
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TCP Server via USB by ADB"
+        android:id="@+id/imageView"
         />
-
 </RelativeLayout>
