@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
     private final int SERVER_PORT = 9000;
     private ImageView imageView;
     public byte imageByte[];
-    public int imageSize = 187500;
+    public int imageSize = 640*480*3;
 
     boolean flag =true;
     @Override
@@ -72,9 +72,9 @@ public class MainActivity extends Activity {
 
                                 //in.close();
                                 imageByte = baos.toByteArray();
-                                baos.close();
+                                //baos.close();
 
-                                int nrOfPixels = 250 * 250;
+                                int nrOfPixels = 640*480;
                                 int pixels[] = new int[nrOfPixels];
                                 for (int i = 0; i < nrOfPixels; i++) {
                                     int r = imageByte[3 * i];
@@ -86,7 +86,13 @@ public class MainActivity extends Activity {
                                     if (b < 0) b = b + 256;
                                     pixels[i] = Color.rgb(b, g, r);
                                 }
-                                final Bitmap bitmap = Bitmap.createBitmap(pixels, 250, 250, Bitmap.Config.ARGB_8888);
+                           /*     runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(MainActivity.this, "Received!!", 1).show();
+                                    }
+                                });*/
+                                final Bitmap bitmap = Bitmap.createBitmap(pixels, 640, 480, Bitmap.Config.ARGB_8888);
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
@@ -94,12 +100,7 @@ public class MainActivity extends Activity {
                                     }
                                 });
 
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        Toast.makeText(MainActivity.this, "Received!!", 1).show();
-                                    }
-                                });
+
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
