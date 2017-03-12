@@ -8,8 +8,8 @@
 #include<opencv2/imgproc/imgproc.hpp>
        
 #pragma  comment(lib,"ws2_32.lib")    
-#define SERVER_IP "127.0.0.1"
-#define SERVER_PORT 8000
+#define SERVER_IP "192.168.0.4"
+#define SERVER_PORT 9000
 
 SOCKET initSocket();
 int sendFrame(SOCKET, cv::Mat);
